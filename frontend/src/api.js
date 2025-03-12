@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API = axios.create({ baseURL: 'http://localhost:8000', withCredentials: true });
+const API = axios.create({ baseURL: 'https://erino-assignment-tq33.onrender.com', withCredentials: true });
 
 export const register = (data) => API.post('/api/auth/register', data);
 export const login = (data) => API.post('/api/auth/login', data);

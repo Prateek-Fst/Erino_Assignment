@@ -29,7 +29,14 @@ export const login = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-    res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
+    res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', 
+        sameSite: 'None',
+        domain: process.env.NODE_ENV === 'production' ? 'erino-assignment-tq33.onrender.com' : 'localhost',
+      });
+      
+      
     res.json({ user: { id: user._id, firstName: user.firstName, lastName: user.lastName, email: user.email } });
   } catch (error) {
     res.status(500).json({ message: error.message });
