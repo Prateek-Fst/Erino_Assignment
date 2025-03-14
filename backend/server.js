@@ -8,9 +8,22 @@ import expenseRoutes from './routes/expenseRoutes.js';
 
 dotenv.config();
 connectDB();
-
+const allowedOrigins = [
+    "https://erino-assignment-zeta.vercel.app",
+    "https://erino-assignment-git-main-prateek-fsts-projects.vercel.app",
+    "https://erino-assignment-hpl60p81j-prateek-fsts-projects.vercel.app"
+  ];
 const app = express();
-app.use(cors({ origin: 'https://erino-assignment-zeta.vercel.app/', credentials: true }));
+app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true
+  }));
 app.use(express.json());
 app.use(cookieParser());
 
