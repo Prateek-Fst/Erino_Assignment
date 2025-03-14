@@ -48,12 +48,7 @@ This is a **Mini Expense Tracker** application that allows users to securely aut
 - **Node.js** + Express
 - **MongoDB** (using Mongoose ORM)
 - **JWT Authentication** (with HTTP-only cookies)
-- **Redis** (for session management, optional)
 
-### 🔹 Deployment:
-- **Frontend:** Vercel
-- **Backend:** Render / AWS
-- **Database:** MongoDB Atlas
 
 ## API Endpoints
 ### 🔐 Authentication
@@ -68,7 +63,6 @@ This is a **Mini Expense Tracker** application that allows users to securely aut
 |--------|------------------|-------------------------|
 | POST   | `/api/expenses`   | Add a new expense      |
 | GET    | `/api/expenses`   | Get all expenses (paginated & filtered) |
-| PUT    | `/api/expenses/:id` | Update an expense     |
 | DELETE | `/api/expenses/:id` | Delete an expense     |
 
 ### 📊 Spending Insights
